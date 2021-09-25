@@ -5,6 +5,8 @@ set -e # fail on error
 
 echo "setup environment."
 
+sudo apt install python3.8-venv
+
 pip install flask
 pip install flask-sqlalchemy
 pip install psycopg2-binary
@@ -38,5 +40,8 @@ if ! command -v psql &> /dev/null
 then
     install_and_setup_postgres
 fi
+
+echo "on desktop environment install also:"
+echo "sudo apt install pgadmin3"
 
 echo "@end"
