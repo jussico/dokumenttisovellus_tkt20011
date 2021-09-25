@@ -5,7 +5,7 @@ set -e # fail on error
 
 echo "setup environment."
 
-sudo apt install python3.8-venv
+#sudo apt install python3.8-venv
 
 pip install flask
 pip install flask-sqlalchemy
