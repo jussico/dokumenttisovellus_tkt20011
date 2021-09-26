@@ -18,5 +18,5 @@ heroku config
 
 source prelude/.env
 
-heroku config:set SECRET_KEY=("$SECRET_KEY")
+heroku config:set SECRET_KEY="$SECRET_KEY"
 
