@@ -17,9 +17,9 @@ TKT20011 aineopintojen harjoitustyö: tietokantasovellus
 
 https://prelude-to-document-app.herokuapp.com/
 
-to login as admin user: amiga/amiga
+kirjautuminen admin-käyttäjänä: amiga/amiga
 
-to login as normal user: sega/sega 
+kirjautuminen normaalina käyttäjänä: sega/sega 
 
 * kirjautuminen sisään ja ulos, dokumenttien listaus ja käyttäjien listaus valmiit toiminnot.
 * tietojen muokkaus puuttuu vielä.
