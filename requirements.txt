@@ -83,17 +83,14 @@ PyMuPDF==1.18.9
 pymacaroons==0.13.0
 pylint==2.6.0
 PyJWT==2.0.0
-PyGObject==3.36.0
 Pygments==2.3.1
 pydot==1.4.1
 pydantic==1.7.3
-pycups==1.9.73
 pycryptodome==3.10.1
 pycrypto==2.6.1
 py-cpuinfo==8.0.0
 pycparser==2.20
 pycodestyle==2.6.0
-pychm==0.8.6
 pycairo==1.16.2
 py==1.10.0
 psycopg2-binary==2.8.6
@@ -168,7 +165,6 @@ html5-parser==0.4.9
 html5lib==1.0.1
 html2text==2020.1.16
 gunicorn==20.0.4
-grpcio==1.28.1
 greenlet==1.0.0
 ghostscript==0.6
 geonamescache==1.2.0
