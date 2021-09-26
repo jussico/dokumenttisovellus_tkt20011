@@ -33,7 +33,6 @@ cryptography==3.3.1
 css-parser==1.0.4
 cssselect==1.1.0
 cssutils==1.0.2
-cupshelpers==1.0
 cymem==2.0.5
 dbus-python==1.2.16
 debugpy==1.4.3
