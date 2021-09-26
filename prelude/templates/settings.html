@@ -1,0 +1,26 @@
+{% extends "layout.html" %}
+
+{% block title %}Settings{% endblock %}
+
+{% block content %}
+<h2>Settings</h2>
+
+<h2>Users</h2>
+
+{% if session.user_username %}
+
+{% for doc_user in all_users %}
+
+   <p>
+   {{ doc_user["username"] }}
+   {{ doc_user["first_name"] }}
+   {{ doc_user["last_name"] }}
+   {{ doc_user["is_admin"] }}
+   {{ doc_user["created"] }}
+   </p>
+
+{% endfor %}
+
+{% endif %}
+
+{% endblock %}

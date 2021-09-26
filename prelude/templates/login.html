@@ -1,10 +1,32 @@
 {% extends "layout.html" %}
-{% block title %}Kirjautuminen{% endblock %}
+
+{% block title %}Login page{% endblock %}
+
 {% block content %}
-<h2>Kirjautuminen</h2>
+<h2>Login page</h2>
+
+{% with messages = get_flashed_messages() %}
+
+   {% if messages %}
+
+      {% for message in messages %}
+
+         <p>{{ message }}</p>
+
+      {% endfor %}
+
+   {% endif %}
+
+{% endwith %}
+
 <form action="/login" method="POST">
-Tunnus: <input type="text" name="username"> <br>
-Salasana: <input type="password" name="password"> <br>
+
+Username: <input type="text" name="username"> <br>
+
+Password: <input type="password" name="password"> <br>
+
 <input type="submit" value="Kirjaudu">
+
 </form>
+
 {% endblock %}

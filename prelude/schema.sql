@@ -1,18 +1,36 @@
-DROP TABLE messages;
-DROP TABLE users;
-DROP TABLE visitors;
 
-CREATE TABLE visitors (id SERIAL PRIMARY KEY, time TIMESTAMP);
+DROP TABLE IF EXISTS review;
+DROP TABLE IF EXISTS doc;
+DROP TABLE IF EXISTS doc_user;
 
-CREATE TABLE users (
+CREATE TABLE doc_user (
     id SERIAL PRIMARY KEY,
     username TEXT UNIQUE,
-    password TEXT
+    first_name TEXT,
+    last_name TEXT,
+    password TEXT,
+    is_admin BOOLEAN,
+    created TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
+ALTER SEQUENCE doc_user_id_seq RESTART WITH 1;
 
-CREATE TABLE messages (
+CREATE TABLE doc (
     id SERIAL PRIMARY KEY,
+    title TEXT,
+    file_name TEXT,
     content TEXT,
-    user_id INTEGER REFERENCES users,
-    sent_at TIMESTAMP
+    created_by INTEGER REFERENCES doc_user,
+    created_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
+ALTER SEQUENCE doc_id_seq RESTART WITH 1;
+
+CREATE TABLE review (
+    id SERIAL PRIMARY KEY,
+    doc_id INTEGER REFERENCES doc,
+    title TEXT,
+    content TEXT,
+    star_count INTEGER,
+    created_by INTEGER REFERENCES doc_user,
+    created_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+ALTER SEQUENCE review_id_seq RESTART WITH 1;

@@ -1,6 +1,24 @@
 {% extends "layout.html" %}
-{% block title %}Etusivu{% endblock %}
+
+{% block title %}Front page{% endblock %}
+
 {% block content %}
-<h2>Etusivu</h2>
-Tervetuloa sovellukseen!
+
+<h2>Front page</h2>
+
+<h3>Documents</h3>
+
+{% for doc in docs %}
+
+   <p>
+   {{ doc["id"] }}
+   {{ doc["title"] }}
+   {{ doc["file_name"] }}
+   {{ doc["text"] }}
+   {{ doc["created_by"] }}
+   {{ doc["created_date"] }}
+   </p>
+
+{% endfor %}
+
 {% endblock %}

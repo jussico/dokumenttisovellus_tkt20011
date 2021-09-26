@@ -1,8 +1,38 @@
 <!doctype html>
+
 <title>Document Application - {% block title %}{% endblock %}</title>
+
 <h1>Document Application</h1>
-<a href="/">Main page</a>
-<a href="/login">Login</a>
+
+{% if session.user_username %}
+    <a href="/">Documents</a>
+    {% if session.user_is_admin %}
+        <a href="/settings">Settings</a>
+    {% endif %}
+{% endif %}
+
 <hr>
+
 {% block content %}{% endblock %}
+
 <hr>
+
+{% if session.user_username %}
+
+<p>you have logged in as 
+{{ session.user_first_name }}
+{{ session.user_last_name }}, alias
+'{{ session.user_username }}'.
+{% if session.user_is_admin %}
+&nbsp; you are administrator.
+{% endif %}
+</p>
+
+<a href="/logout">Log out</a>
+
+{% else %}
+
+<p>You are not logged in, stranger.</p>
+
+{% endif %}
+
