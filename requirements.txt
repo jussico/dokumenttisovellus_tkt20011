@@ -83,7 +83,6 @@ html2text==2020.1.16
 html5-parser==0.4.9
 html5lib==1.0.1
 httplib2==0.14.0
-icdiff==1.9.5
 idna==2.10
 ifaddr==0.1.6
 importlib-metadata==1.5.0
