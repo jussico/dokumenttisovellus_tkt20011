@@ -1,7 +1,6 @@
-# tkt20011_dokumenttisovellus
-TKT20011 aineopintojen harjoitustyö: tietokantasovellus
-
 # DokumenttiSovellus
+
+TKT20011 aineopintojen harjoitustyö: tietokantasovellus
 
 * Sovelluksessa näkyy siihen lisätyt dokumentit, joista voi etsiä tietoa ja lukea arvioita. Jokainen käyttäjä on peruskäyttäjä tai ylläpitäjä.
 * Käyttäjä voi kirjautua sisään ja ulos sekä luoda uuden tunnuksen.
@@ -13,3 +12,14 @@ TKT20011 aineopintojen harjoitustyö: tietokantasovellus
 * Ylläpitäjä voi tarvittaessa poistaa käyttäjän antaman arvion.
 * Ylläpitäjä voi luoda ryhmiä, joihin dokumentteja voi luokitella. Dokumentti voi kuulua yhteen tai useampaan ryhmään.
 * ( Tämän projektin puitteissa sovelluksessa ei siis ole tarkoitus pystyä lataamaan itse dokumentteja vaikka tarkoitus on itse myöhemmin jatkaa sovellusta toisella ohjelmointikielellä siihen suuntaan. )
+
+## Testaus Herokussa:
+
+https://prelude-to-document-app.herokuapp.com/
+
+to login as admin user: amiga/amiga
+
+to login as normal user: sega/sega 
+
+* kirjautuminen sisään ja ulos, dokumenttien listaus ja käyttäjien listaus valmiit toiminnot.
+* tietojen muokkaus puuttuu vielä.
