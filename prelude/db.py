@@ -5,6 +5,7 @@ from models import User
 
 
 # fix heroku postgres / postgresql -problem
+# https://help.heroku.com/ZKNTJQSK/why-is-sqlalchemy-1-4-x-not-connecting-to-heroku-postgres
 import os
 import re
 uri = os.getenv("DATABASE_URL")  # or other relevant config var
