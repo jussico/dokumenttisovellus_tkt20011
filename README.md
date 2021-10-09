@@ -2,14 +2,35 @@
 TKT20011 aineopintojen harjoitustyö: tietokantasovellus
 
 # DokumenttiSovellus
+* Sovelluksessa hallitaan dokumenttitietokantaa
+* Käyttäjien, Dokumenttien, Dokumenttien muistiinpanojen, Avainsanojen lisäys ja muokkaus.
+* Kaikki dokumenttien muistiinpanojen muutokset tallennetaan historiaan.
 
-* Sovelluksessa näkyy siihen lisätyt dokumentit, joista voi etsiä tietoa ja lukea arvioita. Jokainen käyttäjä on peruskäyttäjä tai ylläpitäjä.
-* Käyttäjä voi kirjautua sisään ja ulos sekä luoda uuden tunnuksen.
-* Käyttäjä näkee listan dokumenteista ja voi avata tiedot yhdestä dokumentista omalle sivulleen.
-* Käyttäjä voi antaa arvion (tähdet ja kommentti ) dokumentista ja lukea muiden antamia arvioita.
-* Ylläpitäjä voi lisätä ja poistaa dokumentteja. Dokumentista lisätään ainakin otsikko, tiedostonimi, kuvaus ja järjestelmä lisää automaattisesti tauluun dokumentin latauspäivän ja lataajan.
-* Käyttäjä voi etsiä kaikki dokumentit dokumentin nimellä. ( optiona muut hakuehdot )
-* Käyttäjä näkee myös listan, jossa dokumentit on järjestetty parhaimmasta huonoimpaan arvioiden mukaisesti tai järjestetty eri hakuehtojen mukaan. ( latauspäivä, koko )
-* Ylläpitäjä voi tarvittaessa poistaa käyttäjän antaman arvion.
-* Ylläpitäjä voi luoda ryhmiä, joihin dokumentteja voi luokitella. Dokumentti voi kuulua yhteen tai useampaan ryhmään.
-* ( Tämän projektin puitteissa sovelluksessa ei siis ole tarkoitus pystyä lataamaan itse dokumentteja vaikka tarkoitus on itse myöhemmin jatkaa sovellusta toisella ohjelmointikielellä siihen suuntaan. )
+## Sovelluksen tila:
+* Sovelluksen tietokanta on valmis ja suurin osa toiminnallisuudesta tehty.
+* Uusien muistiinpanojen liittäminen dokumentteihin puuttuu.
+* Dokumenttien hakeminen avainsanalla puuttuu.
+* Syötteen validointeja ei ole tehty eikä virhetilanteita käsitellä vielä siististi.
+* Käyttöliittymässä on vähän parannettavaa käytettävyyden suhteen.
+* Käyttöoikeuksien tarkistuksia ei ole kaikkialla.
+* Virheitä saattaa esiintyä.
+
+## Käyttöohje
+### Yleistä
+* kolme erityyppistä käyttäjää normaali/admin/superuser
+* superuser voi luoda käyttäjiä, admin voi pääsee asetusvalikkoon, normaalikäyttäjällä vähiten oikeuksia.
+* superuser: amiga/amiga
+* admin: atari/atari
+* normaalit: sega/sega, amstrad/amstrad
+### Käyttö
+* sovellukseen kirjaudutaan sisään jonka jälkeen tullaan päänäkymään jossa listattu sovellukseen tallennetut dokumentit.
+* admin ja superuser -käyttäjillä näkyy myös Settings-linkki josta
+pääsee muokkaamaan käyttäjätietoja.
+* Pääsivulta admin/superuser voi muokata listan oikeasta reunasta
+dokumenttien oleellisimpia tietoja.
+* Kaikki käyttäjät voivat avata dokumentin päänäkymän vasemman reunan linkeistä ( id, nimi ).
+* Dokumenttinäkymässä näkyy ensin päätiedot sitten avainsanat ja linkki josta niitä pääsee muokkaamaan.
+* Avainsanojen alla on lista dokumenttiin liitettyjä muistiinpanoja
+joita pääsee muokkaamaan otsikon linkistäê
+* Mustiinpanon muokkaussivulla on myös linkki muokkaushistoriaan joka avautuu omalle sivulleen.
+* ( Tämän projektin puitteissa sovelluksessa ei siis ole tarkoitus pystyä lataamaan itse dokumentteja vaikka tarkoitus on itse myöhemmin jatkaa sovellusta toisella ohjelmointikielellä siihen suuntaan. Senpä takia sovelluksessa on jo paikka tiedostonimelle vaikka sellaista ei pysty tallentamaan.)
