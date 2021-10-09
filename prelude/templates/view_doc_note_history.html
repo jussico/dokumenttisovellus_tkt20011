@@ -9,8 +9,8 @@
 <p>
 {% for note in temporal_notes %}
 <div style="width: 100%; max-width: 500px;">
-    <input style="width: 100%;" type="text" cols=80 name="title" value="{{ note['title'] }}"> <br>
-    <textarea style="width: 100%;" type="textarea" cols=80 rows=10 wrap="hard" name="content">{{ note['content'] }}</textarea>
+    <input readonly style="width: 100%;" type="text" cols=80 name="title" value="{{ note['title'] }}"> <br>
+    <textarea readonly style="width: 100%;" type="textarea" cols=80 rows=10 wrap="hard" name="content">{{ note['content'] }}</textarea>
 </div>
 Modified by: {{ note["modified_by"] }}
 <br>
