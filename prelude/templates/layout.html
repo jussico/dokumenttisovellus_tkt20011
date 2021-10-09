@@ -4,9 +4,9 @@
 
 <h1>Document Application</h1>
 
-{% if session.user_username %}
+{% if session.username %}
     <a href="/">Documents</a>
-    {% if session.user_is_admin %}
+    {% if session.is_admin %}
         <a href="/settings">Settings</a>
     {% endif %}
 {% endif %}
@@ -17,14 +17,17 @@
 
 <hr>
 
-{% if session.user_username %}
+{% if session.id %}
 
-<p>you have logged in as 
-{{ session.user_first_name }}
-{{ session.user_last_name }}, alias
-'{{ session.user_username }}'.
-{% if session.user_is_admin %}
+<p>logged in as 
+{{ session.first_name }}
+{{ session.last_name }}, alias
+'{{ session.username }}'.
+{% if session.is_admin %}
 &nbsp; you are administrator.
+{% endif %}
+{% if session.is_superuser %}
+&nbsp; you are superuser!.
 {% endif %}
 </p>
 

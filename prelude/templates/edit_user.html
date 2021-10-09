@@ -1,0 +1,26 @@
+{% extends "layout.html" %}
+
+{% block title %}Edit User{% endblock %}
+
+{% block content %}
+<h2>Edit User</h2>
+
+<form action="/submit_edit_user" method="POST">
+
+<input type="hidden" name="id" value="{{ user['id'] }}">
+
+Username: <input type="text" name="username" value="{{ user['username'] }}"> <br>
+
+Password: <input type="text" name="password" value="{{ user['password'] }}"> <br>
+
+First name: <input type="text" name="first_name" value="{{ user['first_name'] }}"> <br>
+
+Last name: <input type="text" name="last_name" value="{{ user['last_name'] }}"> <br>
+
+Enabled: <input type="text" name="enabled" value="{{ user['enabled'] }}"> <br>
+
+<input type="submit" value="Send">
+
+</form>
+
+{% endblock %}

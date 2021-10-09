@@ -3,14 +3,16 @@
 # set -x
 set -e
 
-echo "psql < prelude/schema.sql"
-psql < prelude/schema.sql
+komento="psql -v ON_ERROR_STOP=1"
 
-echo "psql < scripts/test_data.sql"
-psql < scripts/test_data.sql
+echo "$komento < prelude/schema.sql"
+$komento < prelude/schema.sql
+
+echo "$komento < scripts/test_data.sql"
+$komento < scripts/test_data.sql
 
 echo "@done. database state set with test data."
 
 echo "database now:"
 
-psql < scripts/query_database.sql
+$komento < scripts/query_database.sql

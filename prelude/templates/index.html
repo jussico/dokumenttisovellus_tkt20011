@@ -8,17 +8,32 @@
 
 <h3>Documents</h3>
 
+<table border="1">
+<tr>
+   <th>Id</th>
+   <th>Title</th>
+   <th>Filename</th>
+   <th>Description</th>
+   <th>Last Modified By</th>
+   <th>Created By</th>
+   <th>Created Date</th>
+   {% if session.is_admin %}
+   <th>Edit</th>
+   {% endif %}
+</tr>
 {% for doc in docs %}
-
-   <p>
-   {{ doc["id"] }}
-   {{ doc["title"] }}
-   {{ doc["file_name"] }}
-   {{ doc["text"] }}
-   {{ doc["created_by"] }}
-   {{ doc["created_date"] }}
-   </p>
-
+<tr>
+   <td><a href="/view_doc/{{ doc["id"] }}">{{ doc["id"] }}</a></td>
+   <td><a href="/view_doc/{{ doc["id"] }}">{{ doc["title"] }}</a></td>
+   <td>{{ doc["file_name"] }}</td>
+   <td>{{ doc["description"] }}</td>
+   <td>{{ doc["modified_by"]}}</td>
+   <td>{{ doc["created_by"] }}</td>
+   <td>{{ doc["created_date"] }}</td>
+   {% if session.is_admin %}
+   <td><a href="/edit_doc/{{ doc["id"] }}">Edit</a></td>
+   {% endif %}
 {% endfor %}
+</table>
 
 {% endblock %}

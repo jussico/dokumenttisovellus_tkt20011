@@ -1,0 +1,32 @@
+{% extends "layout.html" %}
+
+{% block title %}Create User{% endblock %}
+
+{% block content %}
+<h2>Create User</h2>
+
+<form action="/submit_create_new_user" method="POST">
+
+Username: <input type="text" name="username" 
+value="{{ prefilled['username'] }}"> <br>
+
+Password: <input type="text" name="password" 
+value="{{ prefilled['password'] }}"> <br>
+
+First name: <input type="text" name="first_name" 
+value="{{ prefilled['first_name'] }}"> <br>
+
+Last name: <input type="text" name="last_name" 
+value="{{ prefilled['last_name'] }}"> <br>
+
+Enabled: <input type="text" name="enabled" 
+value="{{ prefilled['enabled'] }}"> <br>
+
+Is Admin: <input type="text" name="is_admin" 
+value="{{ prefilled['is_admin'] }}"> <br>
+
+<input type="submit" value="Send">
+
+</form>
+
+{% endblock %}

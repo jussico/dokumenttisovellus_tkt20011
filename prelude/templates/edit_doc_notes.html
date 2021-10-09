@@ -1,0 +1,25 @@
+{% extends "layout.html" %}
+
+{% block title %}Edit Document Notes{% endblock %}
+
+{% block content %}
+<h2>Edit Document Notes</h2>
+
+<form action="/submit_edit_doc_notes" method="POST">
+
+<input type="hidden" name="id" value="{{ note['id'] }}">
+<input type="hidden" name="doc_id" value="{{ note['doc_id'] }}">
+
+<div style="width: 100%; max-width: 500px;">
+    <input style="width: 100%;" type="text" cols=80 name="title" value="{{ note['title'] }}"> <br>
+    <textarea style="width: 100%;" type="textarea" cols=80 rows=10 wrap="hard" name="content">{{ note['content'] }}</textarea>
+</div>
+
+<input type="submit" value="Send">
+
+</form>
+
+<br>
+<a href="/view_doc_note_history/{{ note['id'] }}">Show History</a>
+
+{% endblock %}

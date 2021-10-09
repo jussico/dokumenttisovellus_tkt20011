@@ -1,0 +1,36 @@
+{% extends "layout.html" %}
+
+{% block title %}View Document{% endblock %}
+
+{% block content %}
+<h2>View Document</h2>
+
+<p>
+Id: {{ doc['id'] }}
+<br>
+Title: {{ doc['title'] }}
+<br>
+Filename: {{ doc['file_name'] }}
+<br>
+Description: {{ doc['description'] }}
+</p>
+
+<p>
+<h3><a href="/edit_doc_keywords/{{ doc['id'] }}">Keywords: </a></h3>
+{% for keyword in keywords %}
+{{ keyword.word }}&nbsp;
+{% endfor %}
+</p>
+
+<p>
+<h3>Notes: </h3>
+{% for note in notes %}
+<b><a href="/edit_doc_note/{{ note.id }}">{{ note.title }}</a></b>
+<div style="width: 100%; max-width: 500px;">
+    <textarea readonly style="width: 100%;" type="textarea" cols=80 rows=10 wrap="hard" name="content">{{ note['content'] }}</textarea>
+</div>
+<br>
+{% endfor %}
+</p>
+
+{% endblock %}

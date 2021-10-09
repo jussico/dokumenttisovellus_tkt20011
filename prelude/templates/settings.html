@@ -1,5 +1,7 @@
 {% extends "layout.html" %}
 
+{% if session.is_admin %}
+
 {% block title %}Settings{% endblock %}
 
 {% block content %}
@@ -7,20 +9,55 @@
 
 <h3>Users</h3>
 
-{% if session.user_username %}
-
+<table border="1">
+<tr>
+   <th>Id</th>
+   <th>Name</th>
+   <th>Username</th>
+   <th>Admin</th>
+   <th>Superuser</th>
+   <th>Enabled</th>
+   <th>Account Last modified by</th>
+   <th>Account Created by</th>
+   <th>Account Created at</th>
+   {% if session.is_superuser %}
+      <th>Password</th>
+   {% endif %}   
+   <th>Edit</th>
+</tr>
 {% for doc_user in all_users %}
-
-   <p>
-   {{ doc_user["username"] }}
-   {{ doc_user["first_name"] }}
-   {{ doc_user["last_name"] }}
-   {{ doc_user["is_admin"] }}
-   {{ doc_user["created"] }}
-   </p>
+<tr>
+   <td>{{ doc_user["id"] }}</td>
+   <td>{{ doc_user["first_name"] }} {{ doc_user["last_name"] }}</td>
+   <td>{{ doc_user["username"] }}</td>
+   <td>{{ doc_user["is_admin"] }}</td>
+   <td>{{ doc_user["is_superuser"]}}</td>
+   <td>{{ doc_user["enabled"]}}</td>
+   <td>{{ doc_user["modified_by"]}}</td>
+   <td>{{ doc_user["created_by"] }}</td>
+   <td>{{ doc_user["created_date"] }}</td>
+   {% if session.is_superuser %}
+      <td>{{ doc_user["password"] }}</td>
+   {% endif %}      
+   {% if session.is_admin and not doc_user["is_admin"] %}
+      <td><a href="/edit_user/{{ doc_user["id"] }}">Edit</a></td>
+   {% else %}
+      <td>N/A</td>
+   {% endif %}
 
 {% endfor %}
+</table>
 
-{% endif %}
+</p>
+
+{% if session.is_superuser %}
+   <form action="/create_new_user/">
+      <input type="submit" value="Create New User" />
+   </form>
+{% endif %}      
 
 {% endblock %}
+
+{% endif %}   
+   
+<a href="/create_new_user/">Create New User</a>
