@@ -1,6 +1,3 @@
-# tkt20011_dokumenttisovellus
-TKT20011 aineopintojen harjoitustyö: tietokantasovellus
-
 # DokumenttiSovellus
 * Sovelluksessa hallitaan dokumenttitietokantaa
 * Käyttäjien, Dokumenttien, Dokumenttien muistiinpanojen, Avainsanojen lisäys ja muokkaus.
@@ -19,9 +16,6 @@ TKT20011 aineopintojen harjoitustyö: tietokantasovellus
 ### Yleistä
 * kolme erityyppistä käyttäjää normaali/admin/superuser
 * superuser voi luoda käyttäjiä, admin voi pääsee asetusvalikkoon, normaalikäyttäjällä vähiten oikeuksia.
-* superuser: amiga/amiga
-* admin: atari/atari
-* normaalit: sega/sega, amstrad/amstrad
 ### Käyttö
 * sovellukseen kirjaudutaan sisään jonka jälkeen tullaan päänäkymään jossa listattu sovellukseen tallennetut dokumentit.
 * admin ja superuser -käyttäjillä näkyy myös Settings-linkki josta
@@ -34,3 +28,11 @@ dokumenttien oleellisimpia tietoja.
 joita pääsee muokkaamaan otsikon linkistäê
 * Mustiinpanon muokkaussivulla on myös linkki muokkaushistoriaan joka avautuu omalle sivulleen.
 * ( Tämän projektin puitteissa sovelluksessa ei siis ole tarkoitus pystyä lataamaan itse dokumentteja vaikka tarkoitus on itse myöhemmin jatkaa sovellusta toisella ohjelmointikielellä siihen suuntaan. Senpä takia sovelluksessa on jo paikka tiedostonimelle vaikka sellaista ei pysty tallentamaan.)
+
+## Testaus Herokussa:
+
+https://prelude-to-document-app.herokuapp.com/
+
+* superuser: amiga/amiga
+* admin: atari/atari
+* normaalit: sega/sega, amstrad/amstrad

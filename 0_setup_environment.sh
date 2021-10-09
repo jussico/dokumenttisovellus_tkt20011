@@ -44,4 +44,8 @@ fi
 echo "on desktop environment install also:"
 echo "sudo apt install pgadmin3"
 
+# for heroku
+sudo snap install --classic heroku
+pip install gunicorn
+
 echo "@end"
