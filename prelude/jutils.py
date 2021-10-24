@@ -24,3 +24,11 @@ def get_highest_access_level():
     if is_logged_in():
         return "common people"
     return "stranger with no rights"
+
+def can_edit_user(user_to_edit):
+    if is_superuser():
+        return True
+    if is_admin() and (user_to_edit['is_admin'] == False) and (user_to_edit['is_superuser'] == False):
+        return True
+    return False
+

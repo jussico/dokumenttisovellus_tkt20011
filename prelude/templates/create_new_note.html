@@ -1,0 +1,26 @@
+{% extends "layout.html" %}
+
+{% block title %}Create Document{% endblock %}
+
+{% block content %}
+<h2>Create Note For Document</h2>
+
+<form action="/submit_create_new_note/{{ prefilled['doc_id'] }} " method="POST">
+
+Title: <input type="text" name="title" 
+value="{{ prefilled['title'] }}"> <br>
+
+Content: <input type="text" name="content" 
+value="{{ prefilled['content'] }}"> <br>
+
+<input type="hidden" name="doc_id" 
+value="{{ prefilled['doc_id'] }}">
+
+<input type="hidden" name="csrf_token" 
+value="{{ csrf_token() }}">
+
+<input type="submit" value="Send">
+
+</form>
+
+{% endblock %}

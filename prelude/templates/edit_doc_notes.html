@@ -15,6 +15,9 @@
     <textarea style="width: 100%;" type="textarea" cols=80 rows=10 wrap="hard" name="content">{{ note['content'] }}</textarea>
 </div>
 
+<input type="hidden" name="csrf_token" 
+value="{{ csrf_token() }}">
+
 <input type="submit" value="Send">
 
 </form>

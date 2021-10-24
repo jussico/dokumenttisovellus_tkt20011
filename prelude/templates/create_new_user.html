@@ -25,6 +25,9 @@ value="{{ prefilled['enabled'] }}"> <br>
 Is Admin: <input type="text" name="is_admin" 
 value="{{ prefilled['is_admin'] }}"> <br>
 
+<input type="hidden" name="csrf_token" 
+value="{{ csrf_token() }}">
+
 <input type="submit" value="Send">
 
 </form>

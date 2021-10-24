@@ -1,0 +1,26 @@
+{% extends "layout.html" %}
+
+{% block title %}Create Document{% endblock %}
+
+{% block content %}
+<h2>Create Document</h2>
+
+<form action="/submit_create_new_doc" method="POST">
+
+Title: <input type="text" name="title" 
+value="{{ prefilled['title'] }}"> <br>
+
+File name: <input type="text" name="file_name" 
+value="{{ prefilled['file_name'] }}"> <br>
+
+Description: <input type="text" name="description" 
+value="{{ prefilled['description'] }}"> <br>
+
+<input type="hidden" name="csrf_token" 
+value="{{ csrf_token() }}">
+
+<input type="submit" value="Send">
+
+</form>
+
+{% endblock %}

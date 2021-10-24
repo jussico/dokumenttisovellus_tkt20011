@@ -2,8 +2,7 @@ from app import app
 from flask_sqlalchemy import SQLAlchemy
 from flask import session
 from os import getenv
-# from models import User
-from jutils import pretty
+from jutils import pretty, can_edit_user
 
 
 # fix heroku postgres / postgresql -problem
@@ -189,7 +188,6 @@ def get_normal_users():
     return all_users
 
 def update_user(form):
-    # TODO: tähänkin tarkistus voiko tämä käyttäjä muokata tätä käyttäjää
     print(f"saving values from user-form: {pretty(form)}")
     sql = "UPDATE user_account SET \
         username = :username, \
@@ -210,7 +208,44 @@ def update_user(form):
     return
 
 def create_doc(form):
-    pass
+    print(f"creating doc - values from form: {pretty(form)}")
+    sql = "INSERT INTO doc(\
+        title, \
+        file_name, \
+        description, \
+        modified_by, \
+        created_by) \
+        VALUES( \
+            :title, \
+            :file_name, \
+            :description, \
+            :modified_by, \
+            :created_by \
+            ) RETURNING id"
+    result = db.session.execute(sql, {
+        "title":form["title"],
+        "file_name":form["file_name"],
+        "description":form["description"],
+        "modified_by":session["id"],
+        "created_by":session["id"]}
+        )
+    new_doc_id = result.fetchone()[0]        
+    sql2 = "INSERT INTO doc_owner(\
+        doc_id, \
+        owner_id \
+        )\
+        VALUES( \
+            :doc_id, \
+            :owner_id \
+        )"
+    db.session.execute(sql2, {
+        "doc_id":new_doc_id,
+        "owner_id":session["id"],
+        }
+        )
+    db.session.commit()
+    print(f"NEW DOC CREATED!")
+    return
 
 def create_user(form):
     print(f"creating user - values from user-form: {pretty(form)}")
@@ -250,3 +285,33 @@ def get_docs():
     results = db.session.execute(sql)
     all_documents = results.fetchall()
     return all_documents
+
+def can_edit_user_with_id(user_id):
+    user_to_edit = get_user_with_id(user_id)
+    return can_edit_user(user_to_edit)
+
+def create_note(form):
+    print(f"creating note - values from form: {pretty(form)}")
+    sql = "INSERT INTO doc_note(\
+        doc_id, \
+        title, \
+        content, \
+        modified_by, \
+        created_by) \
+        VALUES( \
+            :doc_id, \
+            :title, \
+            :content, \
+            :modified_by, \
+            :created_by \
+            )"
+    db.session.execute(sql, {
+        "doc_id":form["doc_id"],
+        "title":form["title"],
+        "content":form["content"],
+        "modified_by":session["id"],
+        "created_by":session["id"]}
+        )
+    db.session.commit()
+    print(f"NEW NOTE CREATED!")
+    return

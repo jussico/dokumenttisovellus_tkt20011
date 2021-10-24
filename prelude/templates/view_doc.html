@@ -22,6 +22,12 @@ Description: {{ doc['description'] }}
 {% endfor %}
 </p>
 
+{% if session.is_admin %}
+   <form action="/create_new_note/{{ doc['id'] }}">
+      <input type="submit" value="Create New Note" />
+   </form>
+{% endif %}      
+
 <p>
 <h3>Notes: </h3>
 {% for note in notes %}

@@ -36,4 +36,12 @@
 {% endfor %}
 </table>
 
+</p>
+
+{% if session.is_admin %}
+   <form action="/create_new_doc">
+      <input type="submit" value="Create New Document" />
+   </form>
+{% endif %}      
+
 {% endblock %}

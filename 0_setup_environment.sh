@@ -11,6 +11,8 @@ pip install flask
 pip install flask-sqlalchemy
 pip install psycopg2-binary
 pip install python-dotenv    
+# for csrf
+pip install Flask-WTF
 
 function install_and_setup_postgres {
 

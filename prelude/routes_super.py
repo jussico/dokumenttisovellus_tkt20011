@@ -6,6 +6,8 @@ from flask import redirect, render_template, request, session, flash
 
 from jutils import pretty, is_logged_in, is_admin, is_superuser, get_highest_access_level
 
+from validator import validate_new_user
+
 @app.route("/create_new_user/", methods=['GET', 'POST'])
 def create_new_user():
     print(f"creating new user.")
@@ -26,11 +28,15 @@ def submit_create_new_user():
     print(f"@submit_new_user")
     if not is_superuser():
         return render_template("forbidden.html", forbidden_message=get_highest_access_level())
+    if not validate_new_user(request.form):
+        return render_template("/create_new_user.html", prefilled=request.form)
     try:
         create_user(request.form)
     except:
         print("FAIL!")
+        flash("Creating new user failed.", "warning")
         return render_template("/create_new_user.html", prefilled=request.form)
+    flash("new user successfully created.", "info")
     return redirect("settings")
 
 

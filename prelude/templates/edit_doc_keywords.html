@@ -11,6 +11,9 @@
 
 <input type="textarea" name="keywords" value="{{ doc['keywords'] }}"> <br>
 
+<input type="hidden" name="csrf_token" 
+value="{{ csrf_token() }}">
+
 <input type="submit" value="Send">
 
 </form>
