@@ -30,13 +30,13 @@ def login():
 
 @app.route("/logout")
 def logout():
-    username = request.form["username"]
+    # username = request.form["username"]
     to_remove=[]
     for keyx in session.keys():
         to_remove.append(keyx)
     for keyx in to_remove:
         del session[keyx]
-    flash(f"user {username} successfully logged out.", "info")
+    # flash(f"user {username} successfully logged out.", "info")
     return render_template("logged_out.html")
 
 @app.route("/")
