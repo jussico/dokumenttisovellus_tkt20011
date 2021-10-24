@@ -92,7 +92,7 @@ RETURN NEW;
 END;
 $new$ LANGUAGE plpgsql;
 
--- TRIGGER to update note hitory
+-- TRIGGER to update note history
 CREATE TRIGGER update_doc_note_history AFTER UPDATE ON doc_note
 FOR EACH ROW EXECUTE PROCEDURE doc_note_history_updater();
 
