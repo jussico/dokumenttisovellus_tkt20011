@@ -1,0 +1,27 @@
+{% extends "layout.html" %}
+
+{% block title %}Access forbidden !!!!{% endblock %}
+
+{% block content %}
+<h2>Access forbidden</h2>
+
+You tried to access highly secured classified functionaly on this site without
+ proper access rights.
+<br>
+This incident will be reported. 
+<br>
+All your identification information has been sent to the proper authorities.
+<br>
+WARNING
+<br>
+Criminal access infringment is investigated by the POLICE and may constitute
+a felony with maximum penalty of up to many years in prison and/or a $many many dollars$ fine.
+<br>
+Your access rights level is: {{ forbidden_message }}
+<br>
+
+{% if not session.id %}
+<a href="/">Go to main page</a>
+{% endif %}
+
+{% endblock %}

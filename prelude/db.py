@@ -182,7 +182,14 @@ def get_users():
     all_users = results.fetchall()
     return all_users
 
+def get_normal_users():
+    sql = "SELECT * FROM user_account where is_admin = 'false' and is_superuser = 'false' order by id"
+    results = db.session.execute(sql)
+    all_users = results.fetchall()
+    return all_users
+
 def update_user(form):
+    # TODO: tähänkin tarkistus voiko tämä käyttäjä muokata tätä käyttäjää
     print(f"saving values from user-form: {pretty(form)}")
     sql = "UPDATE user_account SET \
         username = :username, \

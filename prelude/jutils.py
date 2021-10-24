@@ -15,3 +15,12 @@ def is_admin():
 
 def is_superuser():
     return session.get("is_superuser")
+
+def get_highest_access_level():
+    if is_superuser():
+        return "superuser"
+    if is_admin():
+        return "administrator"
+    if is_logged_in():
+        return "common people"
+    return "stranger with no rights"
